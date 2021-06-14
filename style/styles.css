@@ -65,11 +65,12 @@ body {
 
 .slide h3 {
   position: absolute;
-  bottom: 20px;
+  bottom: 35px;
   left: 20px;
   margin: 0;
   font-size: 24px;
-  opacity: 0;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease;
 }
 
 .slide.active {
@@ -77,6 +78,37 @@ body {
 }
 
 .slide.active h3 {
-  opacity: 1;
-  transition: opacity 0.5s ease 0.4s;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 1160px) {
+  .slide h3 {
+    opacity: 0;
+  }
+
+  .slide.active h3 {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    
+  }
+
+  .slide {
+    min-height: 10vh;
+    height: 10vh;
+  }
+
+  .slide.active {
+    min-height: 30vh;
+    height: 30vh;
+  }
+
+  .slide.active h3 {
+    opacity: 1;
+    bottom: 10px;
+  }
 }
